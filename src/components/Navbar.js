@@ -48,7 +48,7 @@ const Navbar = () => {
           <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
               <Link
-                to="/sidebar"
+                to="/dashboard"
                 aria-label="Our product"
                 title="Our product"
                 className="font-semibold tracking-wide text-red-500 transition-colors duration-200 hover:text-deep-purple-accent-400"

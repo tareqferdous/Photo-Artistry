@@ -1,7 +1,4 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import AddProduct from "../components/Dashboard/AddProduct";
-import NavDashboard from "../components/Dashboard/NavDashboard";
 import Sidebar from "../components/Dashboard/Sidebar";
 
 const DashboardPage = () => {
@@ -12,7 +9,7 @@ const DashboardPage = () => {
       </div>
 
       <div>
-        <div className="pl-7 pt-20">hello</div>
+        <div className="ml-72 pt-20">hello</div>
       </div>
     </div>
   );

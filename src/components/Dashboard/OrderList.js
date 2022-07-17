@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 
-const ManageServices = () => {
+const OrderList = () => {
   return (
     <div className="flex min-h-screen">
       <div>
@@ -20,4 +20,4 @@ const ManageServices = () => {
   );
 };
 
-export default ManageServices;
+export default OrderList;
