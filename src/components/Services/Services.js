@@ -28,7 +28,7 @@ const Services = () => {
   // Get service data
   useEffect(() => {
     axios
-      .get("https://wedding-photography-71.herokuapp.com/services")
+      .get("http://localhost:4000/serviceList")
       .then((res) => {
         SetService(res.data);
         setLoading(false);

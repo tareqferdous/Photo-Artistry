@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 
 const SingleService = ({ service }) => {
-  const { _id, title, description, price, image } = service;
+  const { setSelectedService } = useContext(UserContext);
+
+  const { _id, name, desc, price, image } = service;
+  const description = desc.substr(0, 175);
 
   return (
     <div className="flex flex-col transition duration-300 w-90 bg-white rounded shadow-4xl hover:shadow-lg mb-16">
@@ -18,10 +22,10 @@ const SingleService = ({ service }) => {
       <div className="flex flex-col justify-between flex-grow p-4 border border-t-0 rounded-b shadow-3xl">
         <div>
           <div className="font-display font-bold text-2xl mt-2 sm:text-3xl text-red-600">
-            {title}
+            {name}
           </div>
           <p className="text-sm py-4 font-body text-gray-800 leading-normal">
-            {description.substr(0, 175)}
+            {description}
             {"..."}
           </p>
           <strong className="flex items-end mb-6 text-2xl font-display leading-none text-red-500 lg:text-3xl">
@@ -41,6 +45,7 @@ const SingleService = ({ service }) => {
           </Link>
           <Link
             to={`/services/${_id}`}
+            onClick={() => setSelectedService(service)}
             className="inline-flex items-center font-medium transition-colors duration-200 text-red-accent-700 hover:text-red-500"
           >
             View more

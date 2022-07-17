@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
 
 const ServiceDetails = () => {
-  const selectedService = true;
+  const { selectedService } = useContext(UserContext);
 
   return (
     <section className="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -15,7 +16,7 @@ const ServiceDetails = () => {
                 Wedding
               </h2>
               <h1 className="font-display text-red-accent-700 text-3xl title-font font-semibold mb-2">
-                {selectedService?.title} Package
+                {selectedService?.name} Package
               </h1>
               <div className="flex mb-4 font-body">
                 <span className="flex-grow text-red-500 border-b-2 border-red-300 py-2 text-lg px-1">
@@ -29,7 +30,7 @@ const ServiceDetails = () => {
                 </span>
               </div>
               <p className="font-body font-medium text-base text-gray-700 leading-relaxed mb-4">
-                {selectedService?.description}
+                {selectedService?.desc}
               </p>
               <div className="flex border-t border-gray-200 py-2">
                 <span className="text-gray-700">Senior Photographers</span>

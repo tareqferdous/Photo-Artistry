@@ -59,41 +59,81 @@ const AddService = () => {
         <h2 className="text-2xl font-bold text-dark-purple">Add Service</h2>
         <form class="mt-8 space-y-4">
           <div className="w-2/5">
-            <label class="leading-7 text-sm text-gray-600">Name</label>
             <input
               onChange={handleChange}
               type="text"
               name="name"
-              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out"
+              placeholder="Service Name"
+              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900  px-3 leading-8 transition-colors duration-150 ease-in-out"
             />
           </div>
 
           <div className="w-2/5">
-            <label class="leading-7 text-sm text-gray-600">Price</label>
             <input
               onChange={handleChange}
               type="text"
               name="price"
-              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out"
+              placeholder="Price"
+              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900  px-3 leading-8 transition-colors duration-150 ease-in-out"
             />
           </div>
 
           <div className="w-2/5">
-            <label class="leading-7 text-sm text-gray-600">Image</label>
             <input
               onChange={handleImageUpload}
               type="file"
               name="image"
-              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out"
+              placeholder="Image"
+              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900 px-3 leading-8 transition-colors duration-150 ease-in-out"
             />
           </div>
 
           <div className="w-2/5">
-            <label class="leading-7 text-sm text-gray-600">Description</label>
+            <input
+              onChange={handleChange}
+              type="number"
+              name="seniorPhotographer"
+              placeholder="Senior Photographer"
+              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900  px-3 leading-8 transition-colors duration-150 ease-in-out"
+            />
+          </div>
+
+          <div className="w-2/5">
+            <input
+              onChange={handleChange}
+              type="number"
+              name="seniorCinematographers"
+              placeholder="Senior Cinematographers"
+              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900  px-3 leading-8 transition-colors duration-150 ease-in-out"
+            />
+          </div>
+
+          <div className="w-2/5">
+            <input
+              onChange={handleChange}
+              type="text"
+              name="assistantPhotographer"
+              placeholder="Assistant Photographer"
+              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900  px-3 leading-8 transition-colors duration-150 ease-in-out"
+            />
+          </div>
+
+          <div className="w-2/5">
+            <input
+              onChange={handleChange}
+              type="text"
+              name="outdoorPhotoshoot"
+              placeholder="Outdoor Photo shoot"
+              class="w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900  px-3 leading-8 transition-colors duration-150 ease-in-out"
+            />
+          </div>
+
+          <div className="w-2/5">
             <textarea
               onChange={handleChange}
               type="text"
               name="desc"
+              placeholder="Description"
               class="h-24 w-full bg-blue-50 rounded-md border border-gray-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 text-sm outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out"
             ></textarea>
           </div>

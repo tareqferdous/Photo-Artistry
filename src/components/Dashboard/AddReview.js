@@ -11,17 +11,6 @@ const AddReview = () => {
   } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  const [serviceList, SetServiceList] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:4000/serviceList")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        SetServiceList(data);
-      });
-  }, []);
-
-  console.log(serviceList);
   return (
     <div>
       <div className="flex min-h-screen">
