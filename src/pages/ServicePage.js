@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Home/Footer";
+import Navbar from "../components/Home/Navbar";
 import ServiceDetails from "../components/Services/ServiceDetails";
 import ServiceFeatures from "../components/Services/ServiceFeatures";
 

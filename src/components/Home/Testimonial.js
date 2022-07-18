@@ -8,8 +8,8 @@ import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/swiper.min.css";
-import testimonialData from "../data/testimonialData";
-import bgTestimonial from "../image/biography-bg.png";
+import testimonialData from "../../data/testimonialData";
+import bgTestimonial from "../../image/biography-bg.png";
 import Review from "./Review.js";
 
 // install Swiper modules

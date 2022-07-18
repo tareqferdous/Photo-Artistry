@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../App";
+import { ServiceContext } from "../../contexts/ServiceProvider/ServiceProvider";
 
 const SingleService = ({ service }) => {
-  const { setSelectedService } = useContext(UserContext);
+  const { setSelectedService } = useContext(ServiceContext);
 
   const { _id, name, desc, price, image } = service;
   const description = desc.substr(0, 175);
@@ -18,7 +18,6 @@ const SingleService = ({ service }) => {
         />
       </div>
 
-      {/* Service Contents */}
       <div className="flex flex-col justify-between flex-grow p-4 border border-t-0 rounded-b shadow-3xl">
         <div>
           <div className="font-display font-bold text-2xl mt-2 sm:text-3xl text-red-600">
@@ -33,7 +32,6 @@ const SingleService = ({ service }) => {
           </strong>
         </div>
 
-        {/* Service action button */}
         <div className="flex justify-around ">
           <Link to="/dashboard/bookService">
             <button

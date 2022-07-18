@@ -1,12 +1,12 @@
 import React from "react";
-import Banner from "../components/Banner";
-import Features from "../components/Features";
-import Footer from "../components/Footer";
-import Gallery from "../components/Gallery";
-import Navbar from "../components/Navbar";
+import Banner from "../components/Home/Banner";
+import Navbar from "../components/Home/Navbar";
+import Features from "../components/Home/Features";
 import Services from "../components/Services/Services";
+import Gallery from "../components/Home/Gallery";
 import Team from "../components/Team/Team";
-import Testimonial from "../components/Testimonial";
+import Testimonial from "../components/Home/Testimonial";
+import Footer from "../components/Home/Footer";
 
 const Home = () => {
   return (
