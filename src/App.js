@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import Login from "./pages/Authentication/Login";
+import Registration from "./pages/Authentication/Registration";
 import AddReview from "./components/Dashboard/AddReview";
 import AddService from "./components/Dashboard/AddService";
 import ManageServices from "./components/Dashboard/ManageServices";
@@ -33,6 +35,8 @@ function App() {
         <Route path="/addReview" element={<AddReview />}></Route>
         <Route path="/manageService" element={<ManageServices />}></Route>
         <Route path="/orderList" element={<OrderList />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/registration" element={<Registration />}></Route>
       </Routes>
     </UserContext.Provider>
   );

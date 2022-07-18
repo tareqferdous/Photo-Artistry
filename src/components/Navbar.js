@@ -87,15 +87,15 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a
+              <Link
                 style={{ background: "#ce4257" }}
-                href="/"
+                to="/login"
                 className="inline-flex items-center justify-center h-10 px-5 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-teal-800 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                 aria-label="Sign up"
                 title="Sign up"
               >
                 Sign up
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="lg:hidden">
