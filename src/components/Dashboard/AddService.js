@@ -35,7 +35,7 @@ const AddService = () => {
   const handleSubmitData = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:4000/addService", {
+    fetch("https://secure-crag-36110.herokuapp.com/addService", {
       method: "POST",
       headers: {
         "content-type": "application/json",

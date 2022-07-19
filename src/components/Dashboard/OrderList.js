@@ -15,7 +15,7 @@ const OrderList = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:4000/orderList")
+    fetch("https://secure-crag-36110.herokuapp.com/orderList")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

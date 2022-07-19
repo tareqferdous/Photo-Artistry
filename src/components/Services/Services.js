@@ -28,7 +28,7 @@ const Services = () => {
   // Get service data
   useEffect(() => {
     axios
-      .get("http://localhost:4000/serviceList")
+      .get("https://secure-crag-36110.herokuapp.com/serviceList")
       .then((res) => {
         SetService(res.data);
         setLoading(false);
@@ -89,7 +89,7 @@ const Services = () => {
             navigation={true}
             autoplay={true}
             key={service && service.length}
-            className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-xl sm:mx-auto pb-12"
+            className="grid max-w-md gap-10 row-gap-8 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 md:grid-cols-3 xl:max-w-screen-xl sm:mx-auto pb-12"
           >
             {loading ? (
               <PreLoader />

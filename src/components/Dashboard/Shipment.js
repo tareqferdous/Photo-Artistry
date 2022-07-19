@@ -20,7 +20,7 @@ const Shipment = () => {
     setUserInfo(newData);
 
     if (userInfo.shipmentInfo) {
-      fetch("http://localhost:4000/placeOrder", {
+      fetch("https://secure-crag-36110.herokuapp.com/placeOrder", {
         method: "POST",
         headers: {
           "content-type": "application/json",

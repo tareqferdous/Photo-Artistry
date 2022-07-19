@@ -16,7 +16,7 @@ const ManageServices = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:4000/serviceList")
+    fetch("https://secure-crag-36110.herokuapp.com/serviceList")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -26,7 +26,7 @@ const ManageServices = () => {
   }, []);
 
   const handleDeleteService = (id) => {
-    const url = `http://localhost:4000/services/${id}`;
+    const url = `https://secure-crag-36110.herokuapp.com/services/${id}`;
     fetch(url, {
       method: "DELETE",
     })
