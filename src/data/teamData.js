@@ -4,7 +4,7 @@ const teamData = [
     name: "Habib Pranto",
     designation: "Top Photographer",
     image:
-      "https://scontent.fdac90-1.fna.fbcdn.net/v/t39.30808-6/240460223_4089190624536796_3665714235221611684_n.jpg?stp=dst-jpg_p640x640&_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_eui2=AeGBKMWCNJDVtTvPZydoZj2laBJmWkKQUbVoEmZaQpBRtRRZi9YUkn5ufK_Tb2h_pzR9REbjYKGV9Fzz0H_GgUwV&_nc_ohc=aLmlMlMCtDoAX8ooOFj&_nc_ht=scontent.fdac90-1.fna&oh=00_AT_1pt8SvUykdKhNsE4qHDdPDZfkq4_HekrEowPoshTkVw&oe=62D47D4E",
+      "https://scontent.fdac90-1.fna.fbcdn.net/v/t1.6435-9/186551747_3831924926930035_4738082262188500643_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=174925&_nc_eui2=AeH2LUfE3mxQGGCdVc8E1jrbdGUNi6tzNHl0ZQ2Lq3M0eVkkcaek53eXNAYrYlW4JNRFZSQTQ6pkYjFSsrYodYBJ&_nc_ohc=TJAMV3h-YGoAX_axwea&_nc_ht=scontent.fdac90-1.fna&oh=00_AT_yDGBEtQvBY-aFGKHthZxrmv9Ij9pCHgp8l_MW1B7k4A&oe=62FC1A9C",
   },
   {
     _id: "t002",
@@ -25,14 +25,14 @@ const teamData = [
     name: "Md. Ali Islam Khan",
     designation: "Senior Cinematographer",
     image:
-      "https://scontent.fdac90-1.fna.fbcdn.net/v/t39.30808-6/272034270_472211837633979_8029155591488570559_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=174925&_nc_eui2=AeEOGzwJdv4Qz08EcThUTue4_JgAykEsY1r8mADKQSxjWrdZsoou1Hntn8dn-_KwIuEOhPMnapRLcsYnj5XaO3xa&_nc_ohc=lpvOsxsftOAAX-oVJiT&_nc_ht=scontent.fdac90-1.fna&oh=00_AT-LQSL6EDB6jbS6JBY05fvyEITFLWSrYEuVB1MLZs67aw&oe=62D58856",
+      "https://scontent.fdac90-1.fna.fbcdn.net/v/t1.6435-9/122390188_203792781142554_3654717829618321067_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_eui2=AeE71kRWvYYkhHUogMojCqMfFgynq8WyKIgWDKerxbIoiCpxQnw-hLINxBVXOEPqP8_NK-rjcWcbf99o6e_r9dKN&_nc_ohc=LBR43DYkDeIAX916j-J&_nc_ht=scontent.fdac90-1.fna&oh=00_AT-btlKPXlA8pmEcVZeh-g6WCHWk0IhjMY9K24dg9odEuw&oe=62FB4F8B",
   },
   {
     _id: "t005",
     name: "Rohan Mahmud",
     designation: "Senior Videographer",
     image:
-      "https://scontent.fdac90-1.fna.fbcdn.net/v/t39.30808-6/277567717_1342309936285240_7351544611250707909_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHsDDuZprxQ1Bh42l9Ryp_AFDoeDfhCwsYUOh4N-ELCxstKQaaClhq8ah3ufQHobxhI7T1qd_WPGGWAXX0pNPZy&_nc_ohc=dUZ1be2AlKQAX8Yh2f2&_nc_ht=scontent.fdac90-1.fna&oh=00_AT9D4DJM0Bn_CrU_zEZruh_axbuLzmcybQM1IwJdXUd_6A&oe=62D48307",
+      "https://scontent.fdac90-1.fna.fbcdn.net/v/t1.6435-9/155143666_1087109701805266_3134662606915986038_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_eui2=AeGBQRBAvWEl7Nhiz-7Kil-rVh_5OmAYgvxWH_k6YBiC_Im1dclEVSvi8oR756U_SLHw704O0WvEUNvRgNaKYj5m&_nc_ohc=85Kh73nfiW0AX9z0KAs&_nc_ht=scontent.fdac90-1.fna&oh=00_AT_ziOqvGkn0Dcok9oeu3Oa3QGuJ7YSHTnpB6cafg9P1Ww&oe=62FAA040",
   },
   {
     _id: "t006",

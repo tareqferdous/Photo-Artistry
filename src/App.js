@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Authentication/Login";
 import Registration from "./pages/Authentication/Registration";
 import AddReview from "./components/Dashboard/AddReview";
@@ -11,22 +11,44 @@ import HomePage from "./pages/HomePage";
 import ServicePage from "./pages/ServicePage";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import ServiceProvider from "./contexts/ServiceProvider/ServiceProvider";
+import PrivateRoute from "./pages/Authentication/PrivateRoute";
+import Shipment from "./components/Dashboard/Shipment";
+import Checkout from "./components/Dashboard/Checkout";
+import ShipmentProvider from "./contexts/ShipmentProvider/ShipmentProvider";
 
 function App() {
   return (
     <AuthProvider>
       <ServiceProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="services/:id" element={<ServicePage />} />
-          <Route path="/addService" element={<AddService />}></Route>
-          <Route path="/addReview" element={<AddReview />}></Route>
-          <Route path="/manageService" element={<ManageServices />}></Route>
-          <Route path="/orderList" element={<OrderList />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/registration" element={<Registration />}></Route>
-        </Routes>
+        <ShipmentProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <DashboardPage />
+                </PrivateRoute>
+              }
+            />
+            <Route path="services/:id" element={<ServicePage />} />
+            <Route path="/addService" element={<AddService />}></Route>
+            <Route
+              path="/dashboard/checkout"
+              element={
+                <PrivateRoute>
+                  <Checkout />
+                </PrivateRoute>
+              }
+            ></Route>
+            <Route path="/shipment" element={<Shipment />}></Route>
+            <Route path="/addReview" element={<AddReview />}></Route>
+            <Route path="/manageService" element={<ManageServices />}></Route>
+            <Route path="/orderList" element={<OrderList />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/registration" element={<Registration />}></Route>
+          </Routes>
+        </ShipmentProvider>
       </ServiceProvider>
     </AuthProvider>
   );

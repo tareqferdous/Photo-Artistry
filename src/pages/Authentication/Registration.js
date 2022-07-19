@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Registration = () => {
-  const [loginInfo, setLoginInfo] = useState([]);
+  const [loginData, setLoginData] = useState({});
+
+  const { user, registerUser, isLoading, authError } = useContext(AuthContext);
 
   const handleBlur = (e) => {
-    const user = { ...loginInfo };
-    user[e.target.name] = e.target.value;
-    setLoginInfo(user);
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
   };
-
-  console.log(loginInfo);
-
-  const handleRegistration = (e) => {
-    e.preventDefault();
-    if (loginInfo.password !== loginInfo.password2) {
-      alert("Password does not matched");
+  const handleLoginSubmit = (e) => {
+    if (loginData.password !== loginData.password2) {
+      alert("Your password did not match");
       return;
     }
+    registerUser(loginData.email, loginData.password);
+    e.preventDefault();
   };
   return (
     <div>
@@ -37,7 +40,7 @@ const Registration = () => {
             </p>
           </div>
 
-          <form class="mt-8 space-y-6" onSubmit={handleRegistration}>
+          <form class="mt-8 space-y-6" onSubmit={handleLoginSubmit}>
             <input type="hidden" name="remember" value="true" />
             <div class="relative">
               <div class="mt-4 content-center">
@@ -108,6 +111,95 @@ const Registration = () => {
                 Continue with Google
               </button>
             </div>
+
+            {isLoading && (
+              <div
+                aria-label="Loading..."
+                role="status"
+                class="flex items-center text-center justify-center space-x-2"
+              >
+                <svg
+                  class="h-6 w-6 animate-spin stroke-gray-500"
+                  viewBox="0 0 256 256"
+                >
+                  <line
+                    x1="128"
+                    y1="32"
+                    x2="128"
+                    y2="64"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="195.9"
+                    y1="60.1"
+                    x2="173.3"
+                    y2="82.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="224"
+                    y1="128"
+                    x2="192"
+                    y2="128"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="195.9"
+                    y1="195.9"
+                    x2="173.3"
+                    y2="173.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="128"
+                    y1="224"
+                    x2="128"
+                    y2="192"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="60.1"
+                    y1="195.9"
+                    x2="82.7"
+                    y2="173.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="32"
+                    y1="128"
+                    x2="64"
+                    y2="128"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="60.1"
+                    y1="60.1"
+                    x2="82.7"
+                    y2="82.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                </svg>
+                <span class="text-xs font-medium text-gray-500">
+                  Loading...
+                </span>
+              </div>
+            )}
 
             <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
               <span>Already have an account?</span>

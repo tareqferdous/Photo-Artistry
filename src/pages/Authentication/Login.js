@@ -1,21 +1,28 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const [loginInfo, setLoginInfo] = useState([]);
+  const [loginData, setLoginData] = useState({});
+  const { user, loginUser, isLoading, authError } = useContext(AuthContext);
 
-  const handleBlur = (e) => {
-    const user = { ...loginInfo };
-    user[e.target.name] = e.target.value;
-    setLoginInfo(user);
+  const location = useLocation();
+  let navigate = useNavigate();
+
+  const handleOnChange = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
   };
-
   const handleLoginSubmit = (e) => {
+    loginUser(loginData.email, loginData.password, location, navigate);
     e.preventDefault();
-    alert("clicked");
   };
 
-  console.log(loginInfo);
   return (
     <div>
       <div
@@ -57,7 +64,7 @@ const Login = () => {
                 Email
               </label>
               <input
-                onBlur={handleBlur}
+                onBlur={handleOnChange}
                 name="email"
                 class=" w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 type=""
@@ -69,37 +76,14 @@ const Login = () => {
                 Password
               </label>
               <input
-                onBlur={handleBlur}
+                onBlur={handleOnChange}
                 name="password"
                 class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 type="password"
                 placeholder="Enter your password"
               />
             </div>
-            {/* <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <input
-                  id="remember_me"
-                  name="remember_me"
-                  type="checkbox"
-                  class="h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded"
-                />
-                <label
-                  for="remember_me"
-                  class="ml-2 block text-sm text-gray-900"
-                >
-                  Remember me
-                </label>
-              </div>
-              <div class="text-sm">
-                <a
-                  href="#"
-                  class="font-medium text-indigo-500 hover:text-indigo-500"
-                >
-                  Forgot your password?
-                </a>
-              </div>
-            </div> */}
+
             <div>
               <button
                 type="submit"
@@ -129,6 +113,101 @@ const Login = () => {
                 Continue with Google
               </button>
             </div>
+
+            {isLoading && (
+              <div
+                aria-label="Loading..."
+                role="status"
+                class="flex items-center text-center justify-center space-x-2"
+              >
+                <svg
+                  class="h-6 w-6 animate-spin stroke-gray-500"
+                  viewBox="0 0 256 256"
+                >
+                  <line
+                    x1="128"
+                    y1="32"
+                    x2="128"
+                    y2="64"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="195.9"
+                    y1="60.1"
+                    x2="173.3"
+                    y2="82.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="224"
+                    y1="128"
+                    x2="192"
+                    y2="128"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="195.9"
+                    y1="195.9"
+                    x2="173.3"
+                    y2="173.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="128"
+                    y1="224"
+                    x2="128"
+                    y2="192"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="60.1"
+                    y1="195.9"
+                    x2="82.7"
+                    y2="173.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="32"
+                    y1="128"
+                    x2="64"
+                    y2="128"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                  <line
+                    x1="60.1"
+                    y1="60.1"
+                    x2="82.7"
+                    y2="82.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="24"
+                  ></line>
+                </svg>
+                <span class="text-xs font-medium text-gray-500">
+                  Loading...
+                </span>
+              </div>
+            )}
+
+            {user.email && (
+              <p className="text-center text-green-500 font-sm">
+                Login Successfully
+              </p>
+            )}
 
             <p class="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
               <span>Don't have an account?</span>

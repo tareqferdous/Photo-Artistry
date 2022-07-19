@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ServiceContext } from "../../contexts/ServiceProvider/ServiceProvider";
 
 const SingleService = ({ service }) => {
   const { setSelectedService } = useContext(ServiceContext);
+  const navigate = useNavigate();
 
   const { _id, name, desc, price, image } = service;
   const description = desc.substr(0, 175);
 
   return (
-    <div className="flex flex-col transition duration-300 w-90 bg-white rounded shadow-4xl hover:shadow-lg mb-16">
+    <div
+      id="price"
+      className="flex flex-col transition duration-300 w-90 bg-white rounded shadow-4xl hover:shadow-lg mb-16"
+    >
       <div className="relative w-full h-52">
         <img
           src={image}
@@ -33,14 +37,16 @@ const SingleService = ({ service }) => {
         </div>
 
         <div className="flex justify-around ">
-          <Link to="/dashboard/bookService">
+          <Link to="/dashboard/checkout">
             <button
+              onClick={() => setSelectedService(service)}
               type="button"
               className="inline-flex items-center justify-center h-10 px-5 font-display font-bold text-base tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-accent-700 focus:shadow-outline focus:outline-none"
             >
               Book Now
             </button>
           </Link>
+
           <Link
             to={`/services/${_id}`}
             onClick={() => setSelectedService(service)}

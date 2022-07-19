@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +12,8 @@ const Navbar = () => {
       return window.scrollY > 70 ? setBg(true) : setBg(false);
     });
   }, []);
+
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <>
@@ -46,19 +49,21 @@ const Navbar = () => {
             </span>
           </a>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li>
-              <Link
-                to="/dashboard"
-                aria-label="Our product"
-                title="Our product"
-                className="font-semibold tracking-wide text-red-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                Dashboard
-              </Link>
-            </li>
+            {user.email && (
+              <li>
+                <Link
+                  to="/dashboard"
+                  aria-label="Our product"
+                  title="Our product"
+                  className="font-semibold tracking-wide text-red-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                >
+                  Dashboard
+                </Link>
+              </li>
+            )}
             <li>
               <a
-                href="/"
+                href="#feature"
                 aria-label="Our product"
                 title="Our product"
                 className="font-semibold tracking-wide text-red-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -68,7 +73,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/"
+                href="#price"
                 aria-label="Product pricing"
                 title="Product pricing"
                 className="font-semibold tracking-wide text-red-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -78,7 +83,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/"
+                href="#about"
                 aria-label="About us"
                 title="About us"
                 className="font-semibold tracking-wide text-red-500 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -86,17 +91,31 @@ const Navbar = () => {
                 About us
               </a>
             </li>
-            <li>
-              <Link
-                style={{ background: "#ce4257" }}
-                to="/login"
-                className="inline-flex items-center justify-center h-10 px-5 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-teal-800 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </Link>
-            </li>
+            {user?.email ? (
+              <li>
+                <button
+                  onClick={logout}
+                  style={{ background: "#ce4257" }}
+                  className="inline-flex items-center justify-center h-10 px-5 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-teal-800 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  aria-label="Logout"
+                  title="Logout"
+                >
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  style={{ background: "#ce4257" }}
+                  to="login"
+                  className="inline-flex items-center justify-center h-10 px-5 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-teal-800 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                  aria-label="Sign up"
+                  title="Sign up"
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
           <div className="lg:hidden">
             <button
